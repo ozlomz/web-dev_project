@@ -1,0 +1,165 @@
+/* Styles généraux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: url(Home.png);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed; /* Garde l'image de fond fixe pendant le défilement */
+}
+
+/* Header et navigation */
+header, footer {
+    display: flex;
+    backdrop-filter: blur(100px);
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 100px;
+    padding: 0 20px;
+    z-index: 1000; /* Assure que le header reste au-dessus de tout */
+}
+
+nav {
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+nav a:hover {
+    transform: scale(1.06);
+    text-decoration: underline;
+}
+
+/* Logo et profil */
+.logo a, .profile {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 40px;
+}
+
+.profile a:hover {
+    transform: scale(1.1);
+}
+
+.logo a:hover {
+    transform: scale(1.06);
+}
+
+.logo img {
+    width: 60px;
+}
+
+
+/* Sections */
+section {
+    min-height: 100vh;
+    padding-top: 120px; /* Espace pour le header fixe */
+    padding-bottom: 50px;
+    display: flex;
+    align-items: center;
+}
+
+/* Section d'accueil */
+#home {
+    text-align: center;
+    justify-content: center;
+}
+
+#home main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Sections des jeux (Tic-Tac-Toe, Rock Paper Scissors, reaction_time) */
+#tictactoe, #rockpaper, #reaction_time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 150px;
+    gap: 60px; /* Espace entre texte et image */
+}
+
+.Description {
+    flex: 1;
+    max-width: 50%;
+    min-width: 400px;
+}
+
+.Description h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.Description p {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+aside {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+aside img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+aside img:hover {
+    transform: scale(1.05);
+}
+
+/* Typographie */
+h2 {
+    color: rgb(147,64,255,255);
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+p {
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+/* Style spécifique pour la section d'accueil */
+#home h2 {
+    color: white;
+    font-size: 32px;
+}
+
+aside a:hover {
+    transform: scale(1.1);
+}

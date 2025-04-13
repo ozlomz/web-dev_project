@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Pierre Feuille Ciseaux - SHL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pierre_feuille_ciseaux.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Pierre Feuille Ciseaux</h1>
+        <div class="status" id="status">Faites votre choix !</div>
+        <div class="score-board">
+            <div class="score">
+                <p>Joueur</p>
+                <span id="player-score">0</span>
+            </div>
+            <div class="score">
+                <p>Ordinateur</p>
+                <span id="computer-score">0</span>
+            </div>
+        </div>
+        <div class="choices">
+            <button class="choice" id="pierre">✊</button>
+            <button class="choice" id="feuille">✋</button>
+            <button class="choice" id="ciseaux">✌️</button>
+        </div>
+        <div class="result-container">
+            <div class="result-box">
+                <p>Joueur</p>
+                <div class="result" id="player-choice"></div>
+            </div>
+            <div class="result-box">
+                <p>Ordinateur</p>
+                <div class="result" id="computer-choice"></div>
+            </div>
+        </div>
+        <button class="reset" id="resetBtn">Recommencer</button>
+    </div>
+    
+    <a href="projet.html" class="back-link">Retour à l'accueil</a>
+    <script src="pierre_feuille_ciseaux.js"></script>
+</body>
+</html>
