@@ -1,4 +1,4 @@
-// Variables du jeu
+// Game variables
 let playerScore = 0;
 let computerScore = 0;
 const choices = ['pierre', 'feuille', 'ciseaux'];
@@ -12,63 +12,62 @@ const computerChoiceDisplay = document.getElementById('computer-choice');
 const choiceButtons = document.querySelectorAll('.choice');
 const resetButton = document.getElementById('resetBtn');
 
-// Symboles pour les choix
 const symbols = {
     'pierre': '✊',
     'feuille': '✋',
     'ciseaux': '✌️'
 };
 
-// Gestion des clics sur les boutons de choix
+// Clics handling
 choiceButtons.forEach(button => {
     button.addEventListener('click', function() {
         playRound(this.id);
     });
 });
 
-// Gestion du clic sur le bouton de réinitialisation
+// reset clic handling
 resetButton.addEventListener('click', resetGame);
 
 function playRound(playerChoice) {
-    // Choix aléatoire pour l'ordinateur
+    //random computer choice
     const computerChoice = getComputerChoice();
     
-    // Afficher les choix
+    // display the choice
     displayChoices(playerChoice, computerChoice);
     
-    // Déterminer le gagnant
+    // determin the winner
     const result = getWinner(playerChoice, computerChoice);
     
-    // Mettre à jour le score et l'affichage
+    // update the score
     updateScore(result);
     
-    // Afficher le résultat
+    // display the result
     displayResult(result, playerChoice, computerChoice);
 }
 
 function getComputerChoice() {
-    // Générer un choix aléatoire pour l'ordinateur
+    // random computer choice
     const randomIndex = Math.floor(Math.random() * 3);
     return choices[randomIndex];
 }
 
 function displayChoices(playerChoice, computerChoice) {
-    // Afficher les symboles correspondant aux choix
+    // show symbols
     playerChoiceDisplay.textContent = symbols[playerChoice];
     computerChoiceDisplay.textContent = symbols[computerChoice];
     
-    // Retirer les classes winner précédentes
+    // remove old winner
     playerChoiceDisplay.classList.remove('winner');
     computerChoiceDisplay.classList.remove('winner');
 }
 
 function getWinner(playerChoice, computerChoice) {
-    // Si égalité
+    // if draw 
     if (playerChoice === computerChoice) {
         return 'égalité';
     }
     
-    // Règles du jeu
+    // Rules
     if (
         (playerChoice === 'pierre' && computerChoice === 'ciseaux') ||
         (playerChoice === 'feuille' && computerChoice === 'pierre') ||
@@ -81,7 +80,7 @@ function getWinner(playerChoice, computerChoice) {
 }
 
 function updateScore(result) {
-    // Mettre à jour le score selon le résultat
+    // update score
     if (result === 'joueur') {
         playerScore++;
         playerScoreDisplay.textContent = playerScore;
@@ -94,7 +93,7 @@ function updateScore(result) {
 }
 
 function displayResult(result, playerChoice, computerChoice) {
-    // Afficher le résultat du tour
+    // show the winner
     if (result === 'égalité') {
         statusDisplay.textContent = `Égalité !`;
     } else if (result === 'joueur') {
@@ -105,25 +104,25 @@ function displayResult(result, playerChoice, computerChoice) {
 }
 
 function capitalizeFirstLetter(string) {
-    // Mettre la première lettre en majuscule
+    // just for an better readability to upper case the first letter 
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function resetGame() {
-    // Réinitialiser les scores
+    // reset scores
     playerScore = 0;
     computerScore = 0;
     
-    // Mettre à jour l'affichage
+    // update display
     playerScoreDisplay.textContent = playerScore;
     computerScoreDisplay.textContent = computerScore;
     statusDisplay.textContent = "Faites votre choix !";
     
-    // Vider les choix affichés
+    // Empty choices
     playerChoiceDisplay.textContent = "";
     computerChoiceDisplay.textContent = "";
     
-    // Retirer les classes winner
+    // Remove winner classes
     playerChoiceDisplay.classList.remove('winner');
     computerChoiceDisplay.classList.remove('winner');
 }
