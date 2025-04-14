@@ -1,4 +1,4 @@
-/* Styles généraux */
+/* General styles */
 * {
     margin: 0;
     padding: 0;
@@ -11,79 +11,131 @@ html {
 }
 
 body {
-    background-image: url(Home.png);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed; /* Garde l'image de fond fixe pendant le défilement */
-}
+    background: linear-gradient(135deg, #2c3e50, #4a69bd, #5243b6);}
 
-/* Header et navigation */
+/* Header and navigation */
 header, footer {
     display: flex;
     backdrop-filter: blur(100px);
+    background-color: rgba(28, 57, 121, 0.3);
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    height: 100px;
+    width: 100%; /* Takes up the full available width */
+    position: fixed; /* Fixes the bar at the top of the screen */
+    top: 0; /* Sticks the element to the top of the window */
+    height: 100px; /* Fixed height for the bar */
     padding: 0 20px;
-    z-index: 1000; /* Assure que le header reste au-dessus de tout */
+    z-index: 1000; /* Ensures the header stays on top of everything */
 }
 
 nav {
-    display: flex;
-    gap: 80px;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+    display: flex; /* Flexible layout for the links */
+    gap: 80px; /* Space between navigation links */
+    justify-content: center; /* Horizontally centers the links */
+    align-items: center; /* Vertically centers the links */
+    margin: 0 auto; /* Centers the menu inside the header */
 }
 
 nav a {
     color: white;
-    text-decoration: none;
+    text-decoration: none; /* Removes the default underline on links */
     font-size: 18px;
     transition: 0.5s;
 }
 
 nav a:hover {
-    transform: scale(1.06);
-    text-decoration: underline;
+    transform: scale(1.06); /* Slightly increases size on hover */
+    text-decoration: underline; /* Underlines the link on hover */
 }
 
-/* Logo et profil */
+/* Logo and profile */
 .logo a, .profile {
-    display: inline-block;
-    transition: transform 0.3s ease-in-out;
-    text-decoration: none;
-    color: inherit;
+    display: inline-block; /* Allows transformations to be applied */
+    transition: transform 0.3s ease-in-out; /* Smooth animation */
+    text-decoration: none; /* Removes link underline */
+    color: inherit; /* Inherits the parent text color */
     cursor: pointer;
     font-size: 40px;
 }
 
 .profile a:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Slightly increases size on hover */
 }
 
 .logo a:hover {
-    transform: scale(1.06);
+    transform: scale(1.06); /* Slightly increases size on hover */
 }
 
 .logo img {
-    width: 60px;
+    width: 60px; /* Fixed width for the logo */
+}
+.profile img {
+    width: 30px; /* Fixed width for the profile icon */
+}
+
+/* Dropdown menu */
+.cacher {
+    position: relative;
+    padding: 5px;
+}
+
+.login {
+    position: absolute;
+    right: 5px; /* shift to the right */
+    top: 65px; /* shift downwards */
+    width: 200px; /* button size */
+    padding: 20px; /* space between button and dropdown menu */
+    padding-top: 2px; /* reduces the top space between button and dropdown menu */
+    display: none; /* Hidden by default */
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center; /* Horizontally centers items */
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.login button {
+    padding: 5px 50px; /* thickness and width of the button */
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-radius: 25px;
+    outline: none; /* Removes outline on focus */
+    font-weight: bold; /* Bold text */
+    transition: 0.5s;
+}
+
+.login button:hover {
+    color: #fff;
+    background-color: transparent; /* Transparent background on hover */
+    border: 2px solid rgba(255,255,255,0.2); /* Visible border on hover */
+}
+
+.login button span {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+.login p {
+    font-size: 8px;
+    margin-bottom: 0px; /* Removes bottom margin */
+    font-weight: 400;
+}
+
+.cacher:hover .login {
+    display: flex; /* Shows the menu on hover */
 }
 
 
 /* Sections */
 section {
-    min-height: 100vh;
-    padding-top: 120px; /* Espace pour le header fixe */
-    padding-bottom: 50px;
+    min-height: 100vh; /* Minimum height of one viewport */
+    padding-top: 120px; /* Space for the fixed header */
+    padding-bottom: 50px; /* Bottom space for each section */
     display: flex;
     align-items: center;
 }
 
-/* Section d'accueil */
+/* Home section */
 #home {
     text-align: center;
     justify-content: center;
@@ -97,13 +149,13 @@ section {
     text-align: center;
 }
 
-/* Sections des jeux (Tic-Tac-Toe, Rock Paper Scissors, reaction_time) */
+/* Game sections (Tic-Tac-Toe, Rock Paper Scissors, reaction_time) */
 #tictactoe, #rockpaper, #reaction_time {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Even spacing between elements */
     align-items: center;
-    padding: 100px 150px;
-    gap: 60px; /* Espace entre texte et image */
+    padding: 100px 150px; /* Vertical and horizontal spacing */
+    gap: 60px; /* Space between text and image */
 }
 
 .Description {
@@ -132,16 +184,16 @@ aside {
 aside img {
     width: 100%;
     max-width: 350px;
-    height: auto;
-    object-fit: contain;
-    transition: transform 0.3s ease;
+    height: auto; /* Maintains proportions */
+    object-fit: contain; /* Ensures the whole image is visible */
+    transition: transform 0.3s ease; /* Smooth zoom effect */
 }
 
 aside img:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Slightly increases size on hover */
 }
 
-/* Typographie */
+/* Typography */
 h2 {
     color: rgb(147,64,255,255);
     font-size: 50px;
@@ -154,7 +206,7 @@ p {
     line-height: 1.5;
 }
 
-/* Style spécifique pour la section d'accueil */
+/* Specific style for the home section */
 #home h2 {
     color: white;
     font-size: 32px;
