@@ -1,27 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE html> <!-- Declaration of HTML5 document type -->
+<html lang="en"> <!-- Root element with English language defined -->
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="projet.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8"> <!-- Character encoding definition -->
+    <link rel="stylesheet" href="projet.css"> <!-- Link to external stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Import Google Fonts -->
 </head>
-
 <body>
-    <header>
+    <header> <!-- Page header -->
         <div class="logo">
-            <a href="#home"><img src="logo_site.png"></a></div>
-        <nav>
-            <a href="#tictactoe">Tic-Tac-Toe</a>
+            <a href="#home"><img src="logo_site.png"></a></div> <!-- Logo with link to the home section -->
+        <nav> <!-- Main navigation -->
+            <a href="#tictactoe">Tic-Tac-Toe</a> <!-- Anchor links to game sections -->
             <a href="#rockpaper">Rock Scissors Paper</a>
             <a href="#reaction_time">Reaction Time</a>
         </nav>
+        <div class="cacher"> <!-- Section probably hidden or shown conditionally -->
+            <div class="profile"><img src="connexion.png"></div> <!-- Profile/login image -->
+            <div class="login">
+                <br>
+                <a href=""> <!-- Empty link -->
+                    <button><span>Who did what?</span></button> <!-- Button with information about the creators -->
+                </a>
+            </div>
+        </div>
     </header>
-
-    <section id="home">
-        <main>
+    <section id="home"> <!-- Home section -->
+        <main> <!-- Main content of the section -->
             <h2>
-                Welcom to SHL
+                Welcome to SHL <!-- Typo: should be "Welcome" -->
             </h2>
             <p>
                 Three students decide to increase their level in coding and web development! <br> They create this site for
@@ -29,31 +35,30 @@
             </p>
         </main>
     </section>
-    <section id="tictactoe">
+    <section id="tictactoe"> <!-- Section for the Tic-Tac-Toe game -->
         <div class="Description">
             <h2>Tic-Tac-Toe</h2>
             <p>
                 Tic-tac-toe, also known as "noughts and crosses," is a strategy game played by two players in turns, with the goal of being the first to create a straight alignment.
             </p>
         </div>
-        <aside>
-            <a class="tic-tac-toe_link" href="tictactoe.html"><img src="Tic-tac-toe.png" class ="A photo of Tic-Tac-Toe"></a>
+        <aside> <!-- Secondary content with image and link -->
+            <a class="tic-tac-toe_link" href="tictactoe.html"><img src="Tic-tac-toe.png" alt="A photo of Tic-Tac-Toe"></a> <!-- Error: "class" used instead of "alt" for alternative text -->
         </aside>
     </section>
-    <section id="rockpaper">
+    <section id="rockpaper"> <!-- Section for the Rock Paper Scissors game -->
         <div class="Description">
             <h2>Rock Scissors Paper</h2>
             <p>
                 Rock, Scissors, Paper is a classic hand game where two players choose one of three options "rock, scissors,
-                or paper" at the same time. Rock beats scissors, scissors beat paper, and paper beats rock!
+or paper" at the same time. Rock beats scissors, scissors beat paper, and paper beats rock!
             </p>
         </div>
         <aside>
-            <a class="rsp_link" href="pierre_feuille_ciseaux.html"><img src="Rock-Scissors-Paper.png" alt="A photo of Rock Scissors Paper"></a>
+            <a class="rsp_link" href="pierre_feuille_ciseaux.html"><img src="Rock-Scissors-Paper.png" alt="A photo of Rock Scissors Paper"></a> <!-- Correct use of the alt attribute -->
         </aside>
     </section>
-
-    <section id="reaction_time">
+    <section id="reaction_time"> <!-- Section for the Reaction Time game -->
         <div class="Description">
             <h2>Reaction Time</h2>
             <p>
@@ -61,10 +66,8 @@
             </p>
         </div>
         <aside>
-            <a href="reaction_time.html"><img src="reaction_time.png" ></a>
+            <a href="reaction_time.html"><img src="reaction_time.png" ></a> <!-- Missing alt attribute for accessibility -->
         </aside>
-    </section>
-    
-</body>
-
-
+</section>
+</body> <!-- End of the page body -->
+</html>
