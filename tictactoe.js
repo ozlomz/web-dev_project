@@ -3,40 +3,40 @@ let currentPlayer = 'X';
 let gameState = ['', '', '', '', '', '', '', '', ''];
 let gameActive = true;
 
-// Combinaisons gagnantes
+// winning combinations 
 const winningConditions = [
-    [0, 1, 2], [3, 4, 5], [6, 7, 8], // lignes
-    [0, 3, 6], [1, 4, 7], [2, 5, 8], // colonnes
-    [0, 4, 8], [2, 4, 6]             // diagonales
+    [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+    [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
+    [0, 4, 8], [2, 4, 6]             // diagonals
 ];
 
-// Éléments DOM
+// DOM elements
 const statusDisplay = document.getElementById('status');
 const cells = document.querySelectorAll('.cell');
 const resetButton = document.getElementById('resetBtn');
 
-// Gestion des clics sur les cellules
+// click handling on cells
 cells.forEach(cell => {
     cell.addEventListener('click', handleCellClick);
 });
 
-// Gestion du clic sur le bouton de réinitialisation
+// click handling on reset button
 resetButton.addEventListener('click', resetGame);
 
 function handleCellClick(event) {
     const clickedCell = event.target;
     const clickedCellIndex = parseInt(clickedCell.getAttribute('data-index'));
 
-    // Vérifier si la cellule est déjà occupée ou si le jeu est terminé
+    // check if the cell is already occupied or if the game is over
     if (gameState[clickedCellIndex] !== '' || !gameActive) {
         return;
     }
 
-    // Mettre à jour l'état du jeu
+    // update game state
     gameState[clickedCellIndex] = currentPlayer;
     clickedCell.textContent = currentPlayer;
 
-    // Vérifier si le joueur a gagné
+    // check if the player has won
     checkWin();
 }
 
@@ -44,7 +44,7 @@ function checkWin() {
     let roundWon = false;
     let winningLine = null;
 
-    // Vérifier toutes les combinaisons gagnantes
+    // check all winning combinations
     for (let i = 0; i < winningConditions.length; i++) {
         const [a, b, c] = winningConditions[i];
         
@@ -59,9 +59,9 @@ function checkWin() {
         }
     }
 
-    // Si quelqu'un a gagné
+    // if someone has won
     if (roundWon) {
-        // Mettre en surbrillance la combinaison gagnante
+        // highlight the winning combination
         highlightWinningCells(winningLine);
         
         statusDisplay.textContent = `Joueur ${currentPlayer} a gagné!`;
@@ -69,7 +69,7 @@ function checkWin() {
         return;
     }
 
-    // Vérifier s'il y a match nul
+    // check for a draw
     const roundDraw = !gameState.includes('');
     if (roundDraw) {
         statusDisplay.textContent = 'Match nul!';
@@ -77,13 +77,13 @@ function checkWin() {
         return;
     }
 
-    // Changer de joueur
+    // change player
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
     statusDisplay.textContent = `Au tour de: ${currentPlayer}`;
 }
 
 function highlightWinningCells(winningCombination) {
-    // Mettre en évidence les cellules gagnantes
+    // highlight the winning combination
     winningCombination.forEach(index => {
         document.querySelector(`.cell[data-index="${index}"]`).classList.add('winner');
     });
@@ -95,7 +95,7 @@ function resetGame() {
     gameActive = true;
     statusDisplay.textContent = `Au tour de: ${currentPlayer}`;
     
-    // Vider toutes les cellules et supprimer la mise en évidence
+    // empty all cells and remove highlight
     cells.forEach(cell => {
         cell.textContent = '';
         cell.classList.remove('winner');
