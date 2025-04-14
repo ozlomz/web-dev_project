@@ -7,7 +7,7 @@ let isReady = false;
 let startTime;
 let timeoutId;
 
-// Charger le record depuis le localStorage
+// load the record 
 let bestTimeValue = localStorage.getItem('bestTime');
 if (bestTimeValue) {
     bestTime.textContent = `Record : ${bestTimeValue} ms`;
@@ -15,15 +15,15 @@ if (bestTimeValue) {
     bestTime.textContent = `Record : -- ms`;
 }
 
-// Lancer le test
+// the test
 startBtn.addEventListener('click', () => {
-    // Réinitialisation
+    // reset
     circle.style.backgroundColor = 'red';
     circle.textContent = 'Patientez...';
     currentTime.textContent = '';
     isReady = false;
     
-    // Délai aléatoire entre 2s et 5s
+    // random delay between 2s and 5s
     const randomDelay = Math.floor(Math.random() * 3000) + 2000;
 
     timeoutId = setTimeout(() => {
@@ -34,11 +34,11 @@ startBtn.addEventListener('click', () => {
     }, randomDelay);
 });
 
-// Quand on clique sur le cercle
+// when you click on the circle
 circle.addEventListener('click', () => {
-    // Si on clique trop tôt
+    // If you click too early
     if (!isReady) {
-        clearTimeout(timeoutId); // Stoppe le timer
+        clearTimeout(timeoutId); // Stop the timer 
         circle.style.backgroundColor = 'orange';
         circle.textContent = 'Trop tôt !';
         currentTime.textContent = 'Trop rapide... Essayez encore.';
@@ -46,11 +46,11 @@ circle.addEventListener('click', () => {
         return;
     }
 
-    // Si on clique au bon moment
+    // If you click at the right moment
     const reactionTime = Date.now() - startTime;
     currentTime.textContent = `Temps de réaction : ${reactionTime} ms`;
 
-    // Vérifie si c'est un nouveau record
+    // Check if it's a new record
     if (!bestTimeValue || reactionTime < bestTimeValue) {
         bestTimeValue = reactionTime;
         localStorage.setItem('bestTime', bestTimeValue);
