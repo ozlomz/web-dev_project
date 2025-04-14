@@ -1,43 +1,70 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Title of the page -->
     <title>Pierre Feuille Ciseaux - SHL</title>
+
+    <!-- Link to Google Fonts to import the Roboto font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Link to an external CSS file for styling the game -->
     <link rel="stylesheet" href="pierre_feuille_ciseaux.css">
 </head>
 <body>
+    <!-- Main game container -->
     <div class="game-container">
+        <!-- Game title -->
         <h1>Pierre Feuille Ciseaux</h1>
+        
+        <!-- Status message displayed to the user -->
         <div class="status" id="status">Faites votre choix !</div>
+        
+        <!-- Score board displaying scores for the player and computer -->
         <div class="score-board">
+            <!-- Player's score -->
             <div class="score">
                 <p>Joueur</p>
                 <span id="player-score">0</span>
             </div>
+            <!-- Computer's score -->
             <div class="score">
                 <p>Ordinateur</p>
                 <span id="computer-score">0</span>
             </div>
         </div>
+        
+        <!-- Container for the player's choices -->
         <div class="choices">
+            <!-- Button for Rock -->
             <button class="choice" id="pierre">✊</button>
+            <!-- Button for Paper -->
             <button class="choice" id="feuille">✋</button>
+            <!-- Button for Scissors -->
             <button class="choice" id="ciseaux">✌️</button>
         </div>
+        
+        <!-- Container for displaying the result choices -->
         <div class="result-container">
+            <!-- Result box for the player's choice -->
             <div class="result-box">
                 <p>Joueur</p>
                 <div class="result" id="player-choice"></div>
             </div>
+            <!-- Result box for the computer's choice -->
             <div class="result-box">
                 <p>Ordinateur</p>
                 <div class="result" id="computer-choice"></div>
             </div>
         </div>
+        
+        <!-- Button to reset/restart the game -->
         <button class="reset" id="resetBtn">Recommencer</button>
     </div>
     
+    <!-- Link to navigate back to the home page -->
     <a href="projet.html" class="back-link">Retour à l'accueil</a>
+
+    <!-- Link to the JavaScript file that contains the game logic -->
     <script src="pierre_feuille_ciseaux.js"></script>
 </body>
 </html>
